@@ -4,19 +4,18 @@
     from random import *
     from time import *
 
+# Variables
+
     T_CASE=15
     NB_LIG=60
     NB_COL=80
     COULEUR={'fourmi':'light green','plein':'black','vide':'white','contour':'black','fond':'pink'}
     MARGE=5
     VITESSE=0
-
-
-    fen=Tk()
     grille=[]
     fourmi=[[randint(0,NB_LIG-1),randint(0,NB_COL-1),None,-1,0,VITESSE]]
 
-
+# Définitions
 
     def quitter():
         fen.quit()
@@ -84,9 +83,10 @@
             fen.update()
 
 
-#Frame
+# Frames
 
-
+    fen=Tk()       
+  
     fCanvas=Frame(fen,width=NB_COL*T_CASE+2*MARGE)
     fCanvas.pack(side=LEFT)
 
@@ -94,14 +94,14 @@
     fJeu.pack(side=RIGHT)
 
 
-#Canvas
+# Canvas
 
 
     canvas=Canvas(fCanvas,height=T_CASE*NB_LIG+2*MARGE,width=T_CASE*NB_COL+2*MARGE,bg=COULEUR['fond'])
     canvas.pack()
 
 
-#Button
+# Buttons
 
 
     bLancer=Button(fJeu,width=15,font=('helvetica',12),text='Lancer une fourmi',command=lancer)
@@ -110,6 +110,8 @@
     bQuitter=Button(fJeu,width=10,font=('helvetica',12), text="Quitter", command=quitter)
     bQuitter.grid(row=3,column=1,padx=5,pady=5)
 
+
+# Lancement
 
     if __init__ =="__main__":
       initGrille()
